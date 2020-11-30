@@ -27,7 +27,8 @@ _[1]: you will need to find how / where to put those email address out in the op
 
 **Assumptions:**
 *  BIND is installed and configured, (else this seems to be a decent guide [linuxbabe.com local DNS resolver on ubuntu](https://www.linuxbabe.com/ubuntu/set-up-local-dns-resolver-ubuntu-18-04-16-04-bind9))
-    *  If setting up bind now or if your DNS settings are not using your bind for resolving you might need to change the settings for resolve and relink /etc/resolv.conf (to test if you are using your bind for resolving `dig A facebook,com` and see in the output 'SERVER' to see which dns was used).
+    *  If setting up bind now or if your DNS settings are not using your bind for resolving you might need to change the settings for resolve and relink /etc/resolv.conf (to test if you are using your bind for resolving `dig A facebook.com` and see in the output 'SERVER' to see which dns was used).
+    *  If you using only ipv4 make sure to have `OPTIONS="-4"` in /etc/default/bind9
 *  Postfix is configured and running. (many good guides available on the www)  
 *  Fail2ban is configured and running. (many good guides available on the www)  
 
