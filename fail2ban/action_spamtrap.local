@@ -2,7 +2,7 @@
 
 [Definition]
 actionban = python3 /my_scripts/private-dnsbl/dnsbl.py -t a -i <ip> -tr <F-TRAP> -hs <F-HNAME> -s <F-FROM>
-actionunban = python3 /my_scripts/private-dnsbl/dnsbl.py -t a -i <ip>
+actionunban = python3 /my_scripts/private-dnsbl/dnsbl.py -t r -i <ip>
 
 [Init]
 
