@@ -27,6 +27,7 @@ _[1]: you will need to find how / where to put those email address out in the op
 
 **Assumptions:**
 *  BIND is installed and configured, (else this seems to be a decent guide [linuxbabe.com local DNS resolver on ubuntu](https://www.linuxbabe.com/ubuntu/set-up-local-dns-resolver-ubuntu-18-04-16-04-bind9))
+    *  If setting up bind now or if your DNS settings are not using your bind for resolving you might need to change the settings for resolve and relink /etc/resolv.conf (to test if you are using your bind for resolving `dig A facebook,com` and see in the output 'SERVER' to see which dns was used).
 *  Postfix is configured and running. (many good guides available on the www)  
 *  Fail2ban is configured and running. (many good guides available on the www)  
 
@@ -47,6 +48,7 @@ key "dns.private.bl_rndc-key" {
 
 3.  Create a zone file `/var/cache/bind/dns.private.bl` (owned by bind:bind) and put the following inside, (make sure to update/replace as required)
 ```
+$ORIGIN .  
 $TTL 900        ; 15 minutes
 dns.private.bl          IN SOA  ns1.private.bl. private.bl. (
                                 1          ; serial
@@ -58,7 +60,8 @@ dns.private.bl          IN SOA  ns1.private.bl. private.bl. (
                         NS      ns1.private.bl.
                         A       127.0.0.1
 $ORIGIN dns.private.bl.
-$TTL 900        ; 15 minutes
+$TTL 900        ; 15 minutes  
+
 dns                     A       127.0.0.1
 ```  
 
@@ -74,7 +77,7 @@ zone "dns.private.bl" {
     file "/var/cache/bind/dns.private.bl";
     max-journal-size 500k;
 };
-include "/etc/bind/private.bl_rndc-key"
+include "/etc/bind/dns.private.bl_rndc-key";
 ```  
 
 5.  Test the named.conf file with  
