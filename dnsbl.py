@@ -17,15 +17,17 @@ import datetime
 import pytz
 import _myvars
 
-############### re-written by srulikuk (github.com/srulikuk) ###############
-##                    --  CREDIT TO ORIGINAL AUTHOR  --                   ##
-# __author__ = "Niccolo Rigacci"                                           #
-# __copyright__ = "Copyright 2020 Niccolo Rigacci <niccolo@rigacci.org>"   #
-# __license__ = "GPLv3-or-later"                                           #
-# __email__ = "niccolo@rigacci.org"                                        #
-# __version__ = "0.3.1"                                                    #
-############################################################################
-
+################## re-written by srulikuk (github.com/srulikuk) ##################
+#                       --  CREDIT TO ORIGINAL AUTHOR  --                        #
+# __author__ = "Niccolo Rigacci"                                                 #
+# __copyright__ = "Copyright 2020 Niccolo Rigacci <niccolo@rigacci.org>"         #
+# __license__ = "GPLv3-or-later"                                                 #
+# __email__ = "niccolo@rigacci.org"                                              #
+# __version__ = "0.3.1"                                                          #
+#________________________________________________________________________________#
+#  -- Niccolo Rigacci has kindly given permission for this to be distributed --  #
+#  -- with GPL v2.0 however the "or later version" is optional, not required --  #
+##################################################################################
 
 DNSBL_ZONE = (_myvars.DNSBL_ZONE)
 DNS_HOSTNAME = (_myvars.DNS_HOSTNAME)
