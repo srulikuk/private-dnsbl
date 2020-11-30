@@ -1,6 +1,6 @@
 # Private DNSBL for Postfix SpamTrap  
 
-#### Private DNSBL using BIND and fail2ban to manage entries from postfix spamtrap. The IP entries are then banned by the reject_rbl_client in postfix.  
+__Private DNSBL using BIND and fail2ban to manage entries from postfix spamtrap. The IP entries are then DISCARDED by the reject_rbl_client in postfix.__  
 
 *  [How it works](#hotitworks)
 *  [Setup](#setup)
