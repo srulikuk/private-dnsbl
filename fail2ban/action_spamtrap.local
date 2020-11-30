@@ -1,0 +1,10 @@
+# Fail2Ban filter for SpamTrap
+
+[Definition]
+actionban = python3 /my_scripts/private-dnsbl/dnsbl.py -t a -i <ip> -tr <F-TRAP> -hs <F-HNAME> -s <F-FROM>
+actionunban = python3 /my_scripts/private-dnsbl/dnsbl.py -t a -i <ip>
+
+[Init]
+
+# 7 day bantime
+bantime = 604800

@@ -1,0 +1,8 @@
+[spamtrap]
+enabled = true
+port    = 0:65535
+maxretry = 1
+logpath = /var/log/mail.log
+filter = spamtrap
+bantime = 604800
+action = spamtrap[name=spamtrap]

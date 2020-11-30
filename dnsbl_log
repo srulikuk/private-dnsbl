@@ -1,0 +1,16 @@
+/var/log/dnsbl_spamtrap.log {
+        su root adm
+        rotate 13
+        monthly
+        missingok
+        notifempty
+        dateext
+        dateformat .%Y-%m-%d-%s
+        compress
+        delaycompress
+        sharedscripts
+        postrotate
+                /usr/lib/rsyslog/rsyslog-rotate
+        endscript
+        create syslog adm
+}

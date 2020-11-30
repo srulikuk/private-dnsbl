@@ -1,0 +1,11 @@
+# Fail2Ban filter for SpamTrap
+
+[INCLUDES]
+
+before = common.conf
+
+[Definition]
+
+failregex = ^.*NOQUEUE: discard: RCPT from <F-HNAME>.*</F-HNAME>\[<HOST>\].*Recipient address triggers spamtrap.*from=<F-FROM>\S+</F-FROM> to=<F-TRAP>\S+</F-TRAP>.*
+
+ignoreregex =
