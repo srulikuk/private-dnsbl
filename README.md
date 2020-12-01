@@ -171,6 +171,7 @@ When adding an IP entry there additional optional arguments;
 -  `-hs` - followed by the host name (the host that sent the email to the spamtrap)
 -  `-s`  - followed by an email address (the senders email address)
 
+**NOTE: To manually remove a IP its best to use fail2ban instead of the python script, `fail2ban-client unban <ip-here>`**
 ---
 
 ### <a name="credits">Credits</a>
