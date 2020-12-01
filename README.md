@@ -100,7 +100,7 @@ include "/etc/bind/dns.private.bl_rndc-key";
 
 ```
 if /@mydomain.tld$/i
-!/(^realuser1\b|realuser2\b)/i                             DISCARD triggers spamtrap
+!/(^realuser1\b|^realuser2\b)/i                             DISCARD triggers spamtrap
 endif
 ```
 - **NOTE: Use this 'catchall' with extreme caution!** a typo will get an IP blacklisted (an email to `jhon@` instead of `john@` will trigger the trap)  
