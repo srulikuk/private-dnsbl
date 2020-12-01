@@ -96,9 +96,12 @@ include "/etc/bind/dns.private.bl_rndc-key";
 /(some_trap|some_other_trap)@mydomain.tld/i                DISCARD triggers spamtrap
 /(some_trap|some_other_trap)@myother.tld/i                 DISCARD triggers spamtrap
 ```  
-_or if you want to use a catchall excluding a few mailboxes use this regex instead.
-`/((?<!realuser1|realuser2))@mydoamin.tld$/i               DISCARD triggers spamtrap`
-**Use this with caution, a typo will get an IP blacklisted (an email to `jhon@` instead of `john@` will trigger the trap)
+-  or if you want to use a 'catchall' excluding a few mailboxes use this regex instead.  
+
+```
+/((?<!realuser1|realuser2))@mydoamin.tld$/i                 DISCARD triggers spamtrap
+```
+- **NOTE: Use this 'catchall' with extreme caution!** a typo will get an IP blacklisted (an email to `jhon@` instead of `john@` will trigger the trap)  
 
 2. In `/etc/postfix/main.cf` add the rules to the smtpd_recipient_restrictions block, note the following  
   -  To use less resources its best to put the spamtrap rule before the network checks but after the authenticated users.   
