@@ -93,13 +93,15 @@ include "/etc/bind/dns.private.bl_rndc-key";
 
 1. Create the file `/etc/postfix/spamtraps` with the SpamTrap entries such as;
 ```
-/(some_trap|some_other_trap)@mydomain.tld/i                DISCARD triggers spamtrap
-/(some_trap|some_other_trap)@myother.tld/i                 DISCARD triggers spamtrap
+/^(some_trap|some_other_trap)@mydomain.tld$/i                DISCARD triggers spamtrap
+/^(some_trap|some_other_trap)@myother.tld$/i                 DISCARD triggers spamtrap
 ```  
--  or if you want to use a 'catchall' excluding a few mailboxes use this regex instead.  
+-  or if you want to use a 'catchall' excluding a few mailboxes use this if condition instead.  
 
 ```
-/((?<!realuser1|realuser2))@mydoamin.tld$/i                 DISCARD triggers spamtrap
+if /@mydomain.tld$/i
+!/(^realuser1\b|realuser2\b)/i                             DISCARD triggers spamtrap
+endif
 ```
 - **NOTE: Use this 'catchall' with extreme caution!** a typo will get an IP blacklisted (an email to `jhon@` instead of `john@` will trigger the trap)  
 
